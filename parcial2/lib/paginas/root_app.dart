@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:parcial2/constantes/const.dart';
+import 'package:parcial2/paginas/detalle.dart';
 
 class Principal extends StatefulWidget {
   Principal({Key? key}) : super(key: key);
@@ -11,6 +13,10 @@ class Principal extends StatefulWidget {
 class _PrincipalState extends State<Principal> {
   int activoMenu1 = 0;
   int activoMenu2 = 1;
+  bool corazon = true;
+  int validador = 0;
+  bool corazon2 = false;
+  int validador2 = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +122,24 @@ class _PrincipalState extends State<Principal> {
                   return Padding(
                     padding: const EdgeInsets.only(right: 30),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                alignment: Alignment.bottomCenter,
+                                child: Detalle(
+                                  deta: activoMenu1 == 0
+                                      ? sillas[index]
+                                      : activoMenu1 == 1
+                                          ? muebles[index]
+                                          : activoMenu1 == 2
+                                              ? camas[index]
+                                              : activoMenu1 == 3
+                                                  ? cunas[index]
+                                                  : cuadros[index],
+                                ),
+                                type: PageTransitionType.scale));
+                      },
                       child: Column(
                         children: [
                           Stack(children: [
@@ -167,12 +190,26 @@ class _PrincipalState extends State<Principal> {
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 135, top: 20),
-                              child: Container(
-                                // ignore: prefer_const_constructors
-                                child: Icon(
-                                  Icons.favorite,
-                                  size: 15,
-                                  color: Colors.red,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    validador = validador + 1;
+                                    if (validador % 2 == 0) {
+                                      corazon = true;
+                                    } else if (validador % 2 != 0) {
+                                      corazon = false;
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                  // ignore: prefer_const_constructors
+                                  child: Icon(
+                                    Icons.favorite,
+                                    size: 15,
+                                    color: corazon == true
+                                        ? Colors.red
+                                        : Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
@@ -290,7 +327,24 @@ class _PrincipalState extends State<Principal> {
                   return Padding(
                     padding: const EdgeInsets.only(right: 30),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                alignment: Alignment.bottomCenter,
+                                child: Detalle(
+                                  deta: activoMenu2 == 0
+                                      ? sillas[index]
+                                      : activoMenu2 == 1
+                                          ? muebles[index]
+                                          : activoMenu2 == 2
+                                              ? camas[index]
+                                              : activoMenu2 == 3
+                                                  ? cunas[index]
+                                                  : cuadros[index],
+                                ),
+                                type: PageTransitionType.scale));
+                      },
                       child: Column(
                         children: [
                           Stack(children: [
@@ -341,12 +395,26 @@ class _PrincipalState extends State<Principal> {
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 135, top: 20),
-                              child: Container(
-                                // ignore: prefer_const_constructors
-                                child: Icon(
-                                  Icons.favorite,
-                                  size: 15,
-                                  color: Colors.red,
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    validador2 = validador2 + 1;
+                                    if (validador2 % 2 == 0) {
+                                      corazon2 = false;
+                                    } else if (validador2 % 2 != 0) {
+                                      corazon2 = true;
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                  // ignore: prefer_const_constructors
+                                  child: Icon(
+                                    Icons.favorite,
+                                    size: 15,
+                                    color: corazon2 == true
+                                        ? Colors.red
+                                        : Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
@@ -376,13 +444,13 @@ class _PrincipalState extends State<Principal> {
                           //
                           Center(
                             child: Text(
-                              activoMenu1 == 0
+                              activoMenu2 == 0
                                   ? sillas[index]['precio']
-                                  : activoMenu1 == 1
+                                  : activoMenu2 == 1
                                       ? muebles[index]['precio']
-                                      : activoMenu1 == 2
+                                      : activoMenu2 == 2
                                           ? camas[index]['precio']
-                                          : activoMenu1 == 3
+                                          : activoMenu2 == 3
                                               ? cunas[index]['precio']
                                               : cuadros[index]['precio'],
                               style: const TextStyle(color: Colors.black),
