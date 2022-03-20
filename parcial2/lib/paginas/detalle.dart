@@ -1,7 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:parcial2/constantes/const.dart';
+import 'package:parcial2/paginas/carrito.dart';
 
 class Detalle extends StatefulWidget {
   final dynamic deta;
@@ -150,7 +152,7 @@ class _DetalleState extends State<Detalle> {
                     width: 500,
                     height: 489,
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 197, 207, 150),
+                        color: Color.fromARGB(255, 212, 219, 184),
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30),
                             topRight: Radius.circular(30))),
@@ -220,8 +222,9 @@ class _DetalleState extends State<Detalle> {
                   width: 35,
                   height: 35,
                   decoration: BoxDecoration(
-                      color:
-                          seleccion == 1 ? Colors.white70 : Colors.transparent,
+                      color: seleccion == 1
+                          ? Color.fromARGB(179, 134, 134, 134)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ),
@@ -251,8 +254,9 @@ class _DetalleState extends State<Detalle> {
                   width: 35,
                   height: 35,
                   decoration: BoxDecoration(
-                      color:
-                          seleccion == 2 ? Colors.white70 : Colors.transparent,
+                      color: seleccion == 2
+                          ? Color.fromARGB(179, 134, 134, 134)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ),
@@ -282,8 +286,9 @@ class _DetalleState extends State<Detalle> {
                   width: 35,
                   height: 35,
                   decoration: BoxDecoration(
-                      color:
-                          seleccion == 3 ? Colors.white70 : Colors.transparent,
+                      color: seleccion == 3
+                          ? Color.fromARGB(179, 134, 134, 134)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ),
@@ -313,8 +318,9 @@ class _DetalleState extends State<Detalle> {
                   width: 35,
                   height: 35,
                   decoration: BoxDecoration(
-                      color:
-                          seleccion == 4 ? Colors.white70 : Colors.transparent,
+                      color: seleccion == 4
+                          ? Color.fromARGB(179, 134, 134, 134)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ),
@@ -344,8 +350,9 @@ class _DetalleState extends State<Detalle> {
                   width: 35,
                   height: 35,
                   decoration: BoxDecoration(
-                      color:
-                          seleccion == 5 ? Colors.white70 : Colors.transparent,
+                      color: seleccion == 5
+                          ? Color.fromARGB(179, 134, 134, 134)
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(50)),
                 ),
               ),
@@ -373,7 +380,14 @@ class _DetalleState extends State<Detalle> {
                 padding: const EdgeInsets.only(top: 350),
                 child: Center(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              alignment: Alignment.bottomCenter,
+                              child: Carrito(),
+                              type: PageTransitionType.rightToLeft));
+                    },
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       // ignore: prefer_const_literals_to_create_immutables

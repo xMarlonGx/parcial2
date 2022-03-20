@@ -50,7 +50,7 @@ const List sillas = [
     "img": "assets/sillas/Grupo 4.png",
     "nombre": "Silla Gris",
     "precio": "\$24.99",
-    "color": Color.fromARGB(255, 80, 79, 79),
+    "color": Color.fromARGB(255, 187, 187, 187),
     "descripcion":
         "Sed ut felis malesuada, egestas lacus eget, elementum metus. Donec laoreet libero sit amet suscipit blandit. Quisque a lorem posuere."
   }

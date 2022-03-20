@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:parcial2/constantes/const.dart';
@@ -39,6 +41,7 @@ class _PrincipalState extends State<Principal> {
             const EdgeInsets.only(right: 10, left: 10, top: 10, bottom: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
             Icon(
               Icons.menu,
@@ -185,7 +188,7 @@ class _PrincipalState extends State<Principal> {
                               ),
                             ),
 
-                            //
+                            // corazon
 
                             Padding(
                               padding:
@@ -220,7 +223,7 @@ class _PrincipalState extends State<Principal> {
                           SizedBox(
                             height: 10,
                           ),
-
+                          // Descripciones
                           Center(
                             child: Text(
                               activoMenu1 == 0
